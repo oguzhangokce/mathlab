@@ -1,0 +1,17 @@
+function X=gausEliminasyon(A,B)
+X=[A B];
+[nX mX]=size(X);
+i=1;
+while(i<=nX)
+   X=eliminasyon(X,i);
+   i=i+1;
+end
+function X=eliminasyon(X,i)
+for k=1:i
+    if(k==i)
+        continue;
+    end
+    X(i,:)=X(i,:)-X(k,:)*X(i,k);
+end
+a=X(i,i);
+X(i,:)=X(i,:)/a;
